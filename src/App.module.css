@@ -1,0 +1,11 @@
+.wrapper {
+  padding: 0 24px;
+}
+
+.bg-img {
+  background-image: url("./assets/bg-mobile-light.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+}
