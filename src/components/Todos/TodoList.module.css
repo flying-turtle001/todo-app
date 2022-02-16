@@ -1,0 +1,8 @@
+li {
+  border-bottom: 1px solid #e3e4f1;
+  list-style-type: none;
+}
+
+li:last-of-type {
+  border-bottom: none;
+}

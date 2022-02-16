@@ -1,0 +1,30 @@
+.container {
+  margin-bottom: 16px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e3e4f1;
+  border-radius: 50%;
+}
+
+input {
+  border: none;
+}
+
+input::placeholder {
+  color: #9495a5;
+}
+
+input:focus {
+  outline: none;
+}

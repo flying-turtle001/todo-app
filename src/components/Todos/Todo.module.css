@@ -1,0 +1,34 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.circle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e3e4f1;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: 12px;
+  color: #494c6b;
+}
+
+.icon-cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.completed {
+  background: black;
+}
