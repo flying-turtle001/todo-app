@@ -7,7 +7,7 @@ const TodoListFooter = (props) => {
     <BaseRow>
       <div className={styles.wrapper}>
         <span>{props.itemsLeft} items left</span>
-        <span>Clear Completed</span>
+        <span onClick={props.onClearCompletedTodos}>Clear Completed</span>
       </div>
     </BaseRow>
   );

@@ -44,14 +44,17 @@ const DUMMY_TODOS = [
 const App = () => {
   const [todos, setTodos] = useState(DUMMY_TODOS);
   const activeTodos = todos.filter((t) => !t.completed);
-  console.log(activeTodos);
 
   const addTodoHandler = (newTodo) => {
     setTodos([newTodo, ...todos]);
   };
 
   const removeTodoHandler = (todo) => {
-    setTodos((prevTodos) => [...prevTodos.filter((t) => t.id !== todo.id)]);
+    setTodos((prevTodos) => prevTodos.filter((t) => t.id !== todo.id));
+  };
+
+  const clearCompletedTodosHandler = () => {
+    setTodos((prevTodos) => prevTodos.filter((t) => !t.completed));
   };
 
   const changeTodoCompletedStateHandler = (todo) => {
@@ -76,7 +79,10 @@ const App = () => {
         onRemoveTodo={removeTodoHandler}
         onChangeTodoCompletedState={changeTodoCompletedStateHandler}
       />
-      <TodoListFooter itemsLeft={activeTodos.length} />
+      <TodoListFooter
+        itemsLeft={activeTodos.length}
+        onClearCompletedTodos={clearCompletedTodosHandler}
+      />
     </div>
   );
 };
