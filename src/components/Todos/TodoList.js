@@ -7,13 +7,21 @@ const TodoList = (props) => {
     props.onRemoveTodo(todo);
   };
 
+  const changeTodoCompletedStateHandler = (todo) => {
+    props.onChangeTodoCompletedState(todo);
+  };
+
   return (
     <div>
       <ul>
         {props.todos.map((todo) => {
           return (
             <li key={todo.id}>
-              <Todo todo={todo} onRemoveTodo={removeTodoHandler} />
+              <Todo
+                todo={todo}
+                onRemoveTodo={removeTodoHandler}
+                onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+              />
             </li>
           );
         })}

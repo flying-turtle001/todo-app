@@ -30,5 +30,10 @@
 }
 
 .completed {
-  background: black;
+  background: linear-gradient(120deg, #55ddff, #c058f3);
+}
+
+.todo-completed {
+  color: #d1d2da;
+  text-decoration: line-through;
 }
