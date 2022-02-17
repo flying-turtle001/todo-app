@@ -6,6 +6,7 @@ import TodoList from "./components/Todos/TodoList";
 
 import iconMoon from "./assets/icon-moon.svg";
 import styles from "./App.module.css";
+import TodoListFooter from "./components/Todos/TodoListFooter";
 
 const DUMMY_TODOS = [
   {
@@ -42,6 +43,8 @@ const DUMMY_TODOS = [
 
 const App = () => {
   const [todos, setTodos] = useState(DUMMY_TODOS);
+  const activeTodos = todos.filter((t) => !t.completed);
+  console.log(activeTodos);
 
   const addTodoHandler = (newTodo) => {
     setTodos([newTodo, ...todos]);
@@ -73,6 +76,7 @@ const App = () => {
         onRemoveTodo={removeTodoHandler}
         onChangeTodoCompletedState={changeTodoCompletedStateHandler}
       />
+      <TodoListFooter itemsLeft={activeTodos.length} />
     </div>
   );
 };
