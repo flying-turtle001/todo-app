@@ -1,8 +1,8 @@
 import BaseRow from "../ui/BaseRow";
 
-import styles from "./Searchbar.module.css";
+import styles from "./CreateTodo.module.css";
 
-const Searchbar = (props) => {
+const CreateTodo = (props) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       const todo = {
@@ -31,4 +31,4 @@ const Searchbar = (props) => {
   );
 };
 
-export default Searchbar;
+export default CreateTodo;

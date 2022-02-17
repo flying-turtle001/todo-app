@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 import Header from "./components/Header";
-import Searchbar from "./components/Search/Searchbar";
+import CreateTodo from "./components/Todos/CreateTodo";
 import TodoList from "./components/Todos/TodoList";
+import TodoListFooter from "./components/Todos/TodoListFooter";
 
 import iconMoon from "./assets/icon-moon.svg";
 import styles from "./App.module.css";
-import TodoListFooter from "./components/Todos/TodoListFooter";
 
 const DUMMY_TODOS = [
   {
@@ -73,7 +73,7 @@ const App = () => {
   return (
     <div className={`${styles.wrapper} ${styles["bg-img"]}`}>
       <Header text="Todo" icon={iconMoon} />
-      <Searchbar onAddTodo={addTodoHandler} />
+      <CreateTodo onAddTodo={addTodoHandler} />
       <TodoList
         todos={todos}
         onRemoveTodo={removeTodoHandler}
