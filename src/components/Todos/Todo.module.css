@@ -37,3 +37,29 @@
   color: #d1d2da;
   text-decoration: line-through;
 }
+
+@media (min-width: 640px) {
+  .wrapper {
+    gap: 24px;
+  }
+
+  .circle:hover {
+    cursor: pointer;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .wrapper:hover {
+    cursor: pointer;
+  }
+
+  .wrapper .icon-cross {
+    display: none;
+  }
+
+  .wrapper:hover .icon-cross {
+    display: block;
+  }
+}

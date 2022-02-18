@@ -20,3 +20,14 @@
 .text-active {
   color: #3a7cfd;
 }
+
+@media (min-width: 640px) {
+  .text:hover {
+    cursor: pointer;
+    color: #494c6b;
+  }
+
+  .text-active:hover {
+    color: #3a7cfd;
+  }
+}

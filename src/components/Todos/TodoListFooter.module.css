@@ -10,3 +10,13 @@
   font-size: 12px;
   color: #9495a5;
 }
+
+@media (min-width: 640px) {
+  .wrapper {
+    font-size: 14px;
+  }
+  .text:hover {
+    cursor: pointer;
+    color: #494c6b;
+  }
+}

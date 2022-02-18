@@ -19,6 +19,7 @@
 
 input {
   border: none;
+  color: #393a4b;
 }
 
 input::placeholder {
@@ -27,4 +28,15 @@ input::placeholder {
 
 input:focus {
   outline: none;
+}
+
+@media (min-width: 640px) {
+  .wrapper {
+    gap: 24px;
+  }
+
+  input {
+    font-size: 18px;
+    caret-color: #3a7cfd;
+  }
 }

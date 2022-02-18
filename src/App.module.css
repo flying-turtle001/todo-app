@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   padding: 0 24px;
 }
 
@@ -16,4 +16,20 @@
   font-weight: 400;
   color: #9495a5;
   text-align: center;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0;
+  }
+
+  .wrapper {
+    max-width: 560px;
+    margin: auto;
+  }
+
+  .bg-img {
+    background-image: url("./assets/bg-desktop-light.jpg");
+    height: 300px;
+  }
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Header from "./components/Header";
+import Header from "./components/layout/Header";
 import CreateTodo from "./components/Todos/CreateTodo";
 import TodoList from "./components/Todos/TodoList";
 import TodoListFooter from "./components/Todos/TodoListFooter";
@@ -77,21 +77,23 @@ const App = () => {
   };
 
   return (
-    <div className={`${styles.wrapper} ${styles["bg-img"]}`}>
-      <Header text="Todo" icon={iconMoon} />
-      <CreateTodo onAddTodo={addTodoHandler} />
-      <TodoList
-        todos={todos}
-        filter={filter}
-        onRemoveTodo={removeTodoHandler}
-        onChangeTodoCompletedState={changeTodoCompletedStateHandler}
-      />
-      <TodoListFooter
-        itemsLeft={activeTodos.length}
-        onClearCompletedTodos={clearCompletedTodosHandler}
-      />
-      <Filter currentFilter={filter} onChangeFilter={chageFilterHandler} />
-      <p className={styles.text}>Drag and drop to reorder list</p>
+    <div className={`${styles.container} ${styles["bg-img"]}`}>
+      <div className={styles.wrapper}>
+        <Header text="Todo" icon={iconMoon} />
+        <CreateTodo onAddTodo={addTodoHandler} />
+        <TodoList
+          todos={todos}
+          filter={filter}
+          onRemoveTodo={removeTodoHandler}
+          onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+        />
+        <TodoListFooter
+          itemsLeft={activeTodos.length}
+          onClearCompletedTodos={clearCompletedTodosHandler}
+        />
+        <Filter currentFilter={filter} onChangeFilter={chageFilterHandler} />
+        <p className={styles.text}>Drag and drop to reorder list</p>
+      </div>
     </div>
   );
 };
