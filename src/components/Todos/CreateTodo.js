@@ -4,7 +4,7 @@ import styles from "./CreateTodo.module.css";
 
 const CreateTodo = (props) => {
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value) {
       const todo = {
         id: Math.random().toString(),
         text: e.target.value,
