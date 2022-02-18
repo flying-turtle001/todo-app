@@ -9,3 +9,11 @@
   background-repeat: no-repeat;
   height: 200px;
 }
+
+.text {
+  margin-top: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #9495a5;
+  text-align: center;
+}

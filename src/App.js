@@ -91,6 +91,7 @@ const App = () => {
         onClearCompletedTodos={clearCompletedTodosHandler}
       />
       <Filter currentFilter={filter} onChangeFilter={chageFilterHandler} />
+      <p className={styles.text}>Drag and drop to reorder list</p>
     </div>
   );
 };
