@@ -14,17 +14,51 @@ const TodoList = (props) => {
   return (
     <div>
       <ul>
-        {props.todos.map((todo) => {
-          return (
-            <li key={todo.id}>
-              <Todo
-                todo={todo}
-                onRemoveTodo={removeTodoHandler}
-                onChangeTodoCompletedState={changeTodoCompletedStateHandler}
-              />
-            </li>
-          );
-        })}
+        {/* Show all todos  */}
+        {props.filter === "all" &&
+          props.todos.map((todo) => {
+            return (
+              <li key={todo.id}>
+                <Todo
+                  todo={todo}
+                  onRemoveTodo={removeTodoHandler}
+                  onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+                />
+              </li>
+            );
+          })}
+
+        {/* Show active todos */}
+        {props.filter === "active" &&
+          props.todos
+            .filter((todo) => !todo.completed)
+            .map((todo) => {
+              return (
+                <li key={todo.id}>
+                  <Todo
+                    todo={todo}
+                    onRemoveTodo={removeTodoHandler}
+                    onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+                  />
+                </li>
+              );
+            })}
+
+        {/* Show completed todos */}
+        {props.filter === "completed" &&
+          props.todos
+            .filter((todo) => todo.completed)
+            .map((todo) => {
+              return (
+                <li key={todo.id}>
+                  <Todo
+                    todo={todo}
+                    onRemoveTodo={removeTodoHandler}
+                    onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+                  />
+                </li>
+              );
+            })}
       </ul>
     </div>
   );

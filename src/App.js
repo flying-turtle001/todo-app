@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import CreateTodo from "./components/Todos/CreateTodo";
 import TodoList from "./components/Todos/TodoList";
 import TodoListFooter from "./components/Todos/TodoListFooter";
+import Filter from "./components/Todos/Filter";
 
 import iconMoon from "./assets/icon-moon.svg";
 import styles from "./App.module.css";
@@ -44,6 +45,7 @@ const DUMMY_TODOS = [
 const App = () => {
   const [todos, setTodos] = useState(DUMMY_TODOS);
   const activeTodos = todos.filter((t) => !t.completed);
+  const [filter, setFilter] = useState("all");
 
   const addTodoHandler = (newTodo) => {
     setTodos([newTodo, ...todos]);
@@ -70,12 +72,17 @@ const App = () => {
     });
   };
 
+  const chageFilterHandler = (filter) => {
+    setFilter(filter);
+  };
+
   return (
     <div className={`${styles.wrapper} ${styles["bg-img"]}`}>
       <Header text="Todo" icon={iconMoon} />
       <CreateTodo onAddTodo={addTodoHandler} />
       <TodoList
         todos={todos}
+        filter={filter}
         onRemoveTodo={removeTodoHandler}
         onChangeTodoCompletedState={changeTodoCompletedStateHandler}
       />
@@ -83,6 +90,7 @@ const App = () => {
         itemsLeft={activeTodos.length}
         onClearCompletedTodos={clearCompletedTodosHandler}
       />
+      <Filter currentFilter={filter} onChangeFilter={chageFilterHandler} />
     </div>
   );
 };

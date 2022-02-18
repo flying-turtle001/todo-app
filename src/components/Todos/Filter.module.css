@@ -1,0 +1,21 @@
+.container {
+  margin-top: 16px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #9495a5;
+}
+
+.text-active {
+  color: #3a7cfd;
+}
