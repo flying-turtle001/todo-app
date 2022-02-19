@@ -16,6 +16,7 @@
   height: 20px;
   border: 1px solid #e3e4f1;
   border-radius: 50%;
+  background: #ffffff;
 }
 
 .text {
@@ -30,6 +31,7 @@
 }
 
 .completed {
+  border: none;
   background: linear-gradient(120deg, #55ddff, #c058f3);
 }
 
@@ -39,12 +41,17 @@
 }
 
 @media (min-width: 640px) {
+  .container:hover {
+    cursor: pointer;
+  }
+
   .wrapper {
     gap: 24px;
   }
 
   .circle:hover {
     cursor: pointer;
+    border-color: #3a7cfd;
   }
 
   .text {
@@ -59,7 +66,7 @@
     display: none;
   }
 
-  .wrapper:hover .icon-cross {
+  .container:hover .icon-cross {
     display: block;
   }
 }
