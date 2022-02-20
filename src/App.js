@@ -76,6 +76,10 @@ const App = () => {
     setFilter(filter);
   };
 
+  const dragEndHandler = (todos) => {
+    setTodos(todos);
+  };
+
   return (
     <div className={`${styles.container} ${styles["bg-img"]}`}>
       <div className={styles.wrapper}>
@@ -86,13 +90,16 @@ const App = () => {
           filter={filter}
           onRemoveTodo={removeTodoHandler}
           onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+          onDragEnd={dragEndHandler}
         />
         <TodoListFooter
           itemsLeft={activeTodos.length}
           onClearCompletedTodos={clearCompletedTodosHandler}
         />
         <Filter currentFilter={filter} onChangeFilter={chageFilterHandler} />
-        <p className={styles.text}>Drag and drop to reorder list</p>
+        {filter === "all" && (
+          <p className={styles.text}>Drag and drop to reorder list</p>
+        )}
       </div>
     </div>
   );
