@@ -2,6 +2,10 @@
   padding: 0 24px;
 }
 
+.wrapper {
+  padding-bottom: 47px;
+}
+
 .bg-img {
   background-image: url("./assets/bg-mobile-light.jpg");
   background-size: cover;
