@@ -19,4 +19,8 @@
     margin: 70px 0;
     font-size: 40px;
   }
+
+  .icon {
+    cursor: pointer;
+  }
 }

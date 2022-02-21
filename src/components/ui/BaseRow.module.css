@@ -14,4 +14,8 @@
   .row {
     padding: 20px 24px;
   }
+
+  .row--dark {
+    padding: 20px 24px;
+  }
 }

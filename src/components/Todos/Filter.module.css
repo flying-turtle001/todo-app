@@ -38,6 +38,11 @@
     color: #494c6b;
   }
 
+  .text--dark:hover {
+    cursor: pointer;
+    color: #e3e4f1;
+  }
+
   .text-active:hover {
     color: #3a7cfd;
   }

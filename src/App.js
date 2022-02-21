@@ -49,6 +49,15 @@ const App = () => {
   const [filter, setFilter] = useState("all");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  // Set background color depending on active theme
+  if (isDarkMode) {
+    document.body.classList.add("bg--dark");
+  }
+
+  if (!isDarkMode) {
+    document.body.classList.remove("bg--dark");
+  }
+
   const addTodoHandler = (newTodo) => {
     setTodos([newTodo, ...todos]);
   };

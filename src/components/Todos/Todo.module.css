@@ -76,7 +76,16 @@
     border-color: #3a7cfd;
   }
 
+  .circle--dark:hover {
+    cursor: pointer;
+    border-color: #3a7cfd;
+  }
+
   .text {
+    font-size: 18px;
+  }
+
+  .text--dark {
     font-size: 18px;
   }
 

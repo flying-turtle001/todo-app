@@ -12,7 +12,10 @@ const TodoListFooter = (props) => {
           className={props.isDark ? styles["wrapper--dark"] : styles.wrapper}
         >
           <span>{props.itemsLeft} items left</span>
-          <span className={styles.text} onClick={props.onClearCompletedTodos}>
+          <span
+            className={props.isDark ? styles["text--dark"] : styles.text}
+            onClick={props.onClearCompletedTodos}
+          >
             Clear Completed
           </span>
         </div>

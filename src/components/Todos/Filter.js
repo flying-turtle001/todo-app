@@ -31,7 +31,7 @@ const Filter = (props) => {
           </span>
           <span
             onClick={changeFilterToActiveHandler}
-            className={`${styles.text} ${
+            className={`${props.isDark ? styles["text--dark"] : styles.text} ${
               props.currentFilter === "active" && styles["text-active"]
             }`}
           >
@@ -39,7 +39,7 @@ const Filter = (props) => {
           </span>
           <span
             onClick={changeFilterToCompletedHandler}
-            className={`${styles.text} ${
+            className={`${props.isDark ? styles["text--dark"] : styles.text} ${
               props.currentFilter === "completed" && styles["text-active"]
             }`}
           >

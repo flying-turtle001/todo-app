@@ -28,8 +28,18 @@
   .wrapper {
     font-size: 14px;
   }
+
+  .wrapper--dark {
+    font-size: 14px;
+  }
+
   .text:hover {
     cursor: pointer;
     color: #494c6b;
+  }
+
+  .text--dark:hover {
+    cursor: pointer;
+    color: #e3e4f1;
   }
 }

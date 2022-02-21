@@ -1,7 +1,6 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Todo from "./Todo";
 
-// eslint-disable-next-line no-unused-vars
 import styles from "./TodoList.module.css";
 
 const TodoList = (props) => {
