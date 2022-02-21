@@ -16,20 +16,22 @@ const Todo = (props) => {
 
   return (
     <div className={styles.container}>
-      <BaseRow>
+      <BaseRow isDark={props.isDark}>
         <div className={styles.wrapper}>
           <div
             onClick={changeTodoCompletedStateHandler}
-            className={`${styles.circle} ${
-              props.todo.completed && styles.completed
-            }`}
+            className={`${
+              props.isDark ? styles["circle--dark"] : styles.circle
+            } ${props.todo.completed && styles.completed}`}
           >
             {props.todo.completed && <img src={iconCheck} alt="icon-check" />}
           </div>
           <span
-            className={`${styles.text} ${
-              props.todo.completed && styles["todo-completed"]
-            }`}
+            className={`${props.isDark ? styles["text--dark"] : styles.text} ${
+              props.todo.completed &&
+              props.isDark &&
+              styles["todo-completed--dark"]
+            } ${props.todo.completed && styles["todo-completed"]}`}
           >
             {props.todo.text}
           </span>

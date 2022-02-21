@@ -42,9 +42,15 @@ const TodoList = (props) => {
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
+                          className={
+                            props.isDark
+                              ? styles["list-item--dark"]
+                              : styles["list-item"]
+                          }
                         >
                           <Todo
                             todo={todo}
+                            isDark={props.isDark}
                             onRemoveTodo={removeTodoHandler}
                             onChangeTodoCompletedState={
                               changeTodoCompletedStateHandler
@@ -62,9 +68,17 @@ const TodoList = (props) => {
                   .filter((todo) => !todo.completed)
                   .map((todo) => {
                     return (
-                      <li key={todo.id}>
+                      <li
+                        key={todo.id}
+                        className={
+                          props.isDark
+                            ? styles["list-item--dark"]
+                            : styles["list-item"]
+                        }
+                      >
                         <Todo
                           todo={todo}
+                          isDark={props.isDark}
                           onRemoveTodo={removeTodoHandler}
                           onChangeTodoCompletedState={
                             changeTodoCompletedStateHandler
@@ -80,9 +94,17 @@ const TodoList = (props) => {
                   .filter((todo) => todo.completed)
                   .map((todo) => {
                     return (
-                      <li key={todo.id}>
+                      <li
+                        key={todo.id}
+                        className={
+                          props.isDark
+                            ? styles["list-item--dark"]
+                            : styles["list-item"]
+                        }
+                      >
                         <Todo
                           todo={todo}
+                          isDark={props.isDark}
                           onRemoveTodo={removeTodoHandler}
                           onChangeTodoCompletedState={
                             changeTodoCompletedStateHandler

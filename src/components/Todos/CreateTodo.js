@@ -17,13 +17,16 @@ const CreateTodo = (props) => {
 
   return (
     <div className={styles.container}>
-      <BaseRow>
+      <BaseRow isDark={props.isDark}>
         <div className={styles.wrapper}>
-          <div className={styles.circle}></div>
+          <div
+            className={props.isDark ? styles["circle--dark"] : styles.circle}
+          ></div>
           <input
             type="text"
             placeholder="Create a new todo..."
             onKeyDown={handleKeyDown}
+            className={props.isDark ? styles["ipt--dark"] : styles.ipt}
           />
         </div>
       </BaseRow>

@@ -4,6 +4,12 @@
   border-radius: 6px;
 }
 
+.row--dark {
+  background-color: #25273d;
+  padding: 14px 20px;
+  border-radius: 6px;
+}
+
 @media (min-width: 640px) {
   .row {
     padding: 20px 24px;

@@ -17,16 +17,38 @@
   border-radius: 50%;
 }
 
-input {
+.circle--dark {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #393a4b;
+  border-radius: 50%;
+}
+
+.ipt {
   border: none;
+  background: #ffffff;
   color: #393a4b;
 }
 
-input::placeholder {
+.ipt--dark {
+  border: none;
+  background: #25273d;
+  color: #c8cbe7;
+}
+
+.ipt::placeholder {
   color: #9495a5;
 }
 
-input:focus {
+.ipt--dark::placeholder {
+  color: #767992;
+}
+
+.ipt:focus {
+  outline: none;
+}
+
+.ipt--dark:focus {
   outline: none;
 }
 

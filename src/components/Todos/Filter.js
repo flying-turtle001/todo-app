@@ -16,12 +16,14 @@ const Filter = (props) => {
   };
 
   return (
-    <div className={styles.container}>
-      <BaseRow>
+    <div
+      className={props.isDark ? styles["container--dark"] : styles.container}
+    >
+      <BaseRow isDark={props.isDark}>
         <div className={styles.wrapper}>
           <span
             onClick={changeFilterToAllHandler}
-            className={`${styles.text} ${
+            className={`${props.isDark ? styles["text--dark"] : styles.text} ${
               props.currentFilter === "all" && styles["text-active"]
             }`}
           >

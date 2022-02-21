@@ -7,6 +7,7 @@ import TodoListFooter from "./components/Todos/TodoListFooter";
 import Filter from "./components/Todos/Filter";
 
 import iconMoon from "./assets/icon-moon.svg";
+import iconSun from "./assets/icon-sun.svg";
 import styles from "./App.module.css";
 
 const DUMMY_TODOS = [
@@ -46,6 +47,7 @@ const App = () => {
   const [todos, setTodos] = useState(DUMMY_TODOS);
   const activeTodos = todos.filter((t) => !t.completed);
   const [filter, setFilter] = useState("all");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const addTodoHandler = (newTodo) => {
     setTodos([newTodo, ...todos]);
@@ -80,25 +82,45 @@ const App = () => {
     setTodos(todos);
   };
 
+  const changeThemeHandler = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
   return (
-    <div className={`${styles.container} ${styles["bg-img"]}`}>
+    <div
+      className={`${
+        isDarkMode ? styles["container--dark"] : styles.container
+      } ${isDarkMode ? styles["bg-img--dark"] : styles["bg-img"]}`}
+    >
       <div className={styles.wrapper}>
-        <Header text="Todo" icon={iconMoon} />
-        <CreateTodo onAddTodo={addTodoHandler} />
+        <Header
+          onChangeTheme={changeThemeHandler}
+          text="Todo"
+          icon={isDarkMode ? iconSun : iconMoon}
+        />
+        <CreateTodo isDark={isDarkMode} onAddTodo={addTodoHandler} />
         <TodoList
           todos={todos}
           filter={filter}
+          isDark={isDarkMode}
           onRemoveTodo={removeTodoHandler}
           onChangeTodoCompletedState={changeTodoCompletedStateHandler}
           onDragEnd={dragEndHandler}
         />
         <TodoListFooter
           itemsLeft={activeTodos.length}
+          isDark={isDarkMode}
           onClearCompletedTodos={clearCompletedTodosHandler}
         />
-        <Filter currentFilter={filter} onChangeFilter={chageFilterHandler} />
+        <Filter
+          currentFilter={filter}
+          isDark={isDarkMode}
+          onChangeFilter={chageFilterHandler}
+        />
         {filter === "all" && (
-          <p className={styles.text}>Drag and drop to reorder list</p>
+          <p className={isDarkMode ? styles["text--dark"] : styles.text}>
+            Drag and drop to reorder list
+          </p>
         )}
       </div>
     </div>

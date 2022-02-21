@@ -4,7 +4,7 @@ const Header = (props) => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.heading}>{props.text}</h1>
-      <img src={props.icon} alt="Icon" />
+      <img onClick={props.onChangeTheme} src={props.icon} alt="Icon" />
     </div>
   );
 };

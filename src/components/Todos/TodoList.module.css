@@ -1,4 +1,9 @@
-li {
+.list-item {
   border-bottom: 1px solid #e3e4f1;
+  list-style-type: none;
+}
+
+.list-item--dark {
+  border-bottom: 1px solid #4d5067;
   list-style-type: none;
 }
