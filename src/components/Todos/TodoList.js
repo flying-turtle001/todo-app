@@ -4,6 +4,74 @@ import Todo from "./Todo";
 import styles from "./TodoList.module.css";
 
 const TodoList = (props) => {
+  let filteredTodos;
+
+  if (props.filter === "all") {
+    filteredTodos = props.todos.map((todo, index) => {
+      return (
+        <Draggable key={todo.id} draggableId={todo.id} index={index}>
+          {(provided) => (
+            <li
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              className={
+                props.isDark ? styles["list-item--dark"] : styles["list-item"]
+              }
+            >
+              <Todo
+                todo={todo}
+                isDark={props.isDark}
+                onRemoveTodo={removeTodoHandler}
+                onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+              />
+            </li>
+          )}
+        </Draggable>
+      );
+    });
+  } else if (props.filter === "active") {
+    filteredTodos = props.todos
+      .filter((todo) => !todo.completed)
+      .map((todo) => {
+        return (
+          <li
+            key={todo.id}
+            className={
+              props.isDark ? styles["list-item--dark"] : styles["list-item"]
+            }
+          >
+            <Todo
+              todo={todo}
+              isDark={props.isDark}
+              onRemoveTodo={removeTodoHandler}
+              onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+            />
+          </li>
+        );
+      });
+  } else if (props.filter === "completed") {
+    filteredTodos = props.todos
+      .filter((todo) => todo.completed)
+      .map((todo) => {
+        return (
+          <li
+            key={todo.id}
+            className={
+              props.isDark ? styles["list-item--dark"] : styles["list-item"]
+            }
+          >
+            <Todo
+              todo={todo}
+              isDark={props.isDark}
+              onRemoveTodo={removeTodoHandler}
+              onChangeTodoCompletedState={changeTodoCompletedStateHandler}
+            />
+          </li>
+        );
+      });
+  }
+
   const removeTodoHandler = (todo) => {
     props.onRemoveTodo(todo);
   };
@@ -27,91 +95,8 @@ const TodoList = (props) => {
         <Droppable droppableId="todos">
           {(provided) => (
             <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {/* Show all todos  */}
-              {props.filter === "all" &&
-                props.todos.map((todo, index) => {
-                  return (
-                    <Draggable
-                      key={todo.id}
-                      draggableId={todo.id}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <li
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className={
-                            props.isDark
-                              ? styles["list-item--dark"]
-                              : styles["list-item"]
-                          }
-                        >
-                          <Todo
-                            todo={todo}
-                            isDark={props.isDark}
-                            onRemoveTodo={removeTodoHandler}
-                            onChangeTodoCompletedState={
-                              changeTodoCompletedStateHandler
-                            }
-                          />
-                        </li>
-                      )}
-                    </Draggable>
-                  );
-                })}
+              {filteredTodos}
 
-              {/* Show active todos */}
-              {props.filter === "active" &&
-                props.todos
-                  .filter((todo) => !todo.completed)
-                  .map((todo) => {
-                    return (
-                      <li
-                        key={todo.id}
-                        className={
-                          props.isDark
-                            ? styles["list-item--dark"]
-                            : styles["list-item"]
-                        }
-                      >
-                        <Todo
-                          todo={todo}
-                          isDark={props.isDark}
-                          onRemoveTodo={removeTodoHandler}
-                          onChangeTodoCompletedState={
-                            changeTodoCompletedStateHandler
-                          }
-                        />
-                      </li>
-                    );
-                  })}
-
-              {/* Show completed todos */}
-              {props.filter === "completed" &&
-                props.todos
-                  .filter((todo) => todo.completed)
-                  .map((todo) => {
-                    return (
-                      <li
-                        key={todo.id}
-                        className={
-                          props.isDark
-                            ? styles["list-item--dark"]
-                            : styles["list-item"]
-                        }
-                      >
-                        <Todo
-                          todo={todo}
-                          isDark={props.isDark}
-                          onRemoveTodo={removeTodoHandler}
-                          onChangeTodoCompletedState={
-                            changeTodoCompletedStateHandler
-                          }
-                        />
-                      </li>
-                    );
-                  })}
               {provided.placeholder}
             </ul>
           )}
